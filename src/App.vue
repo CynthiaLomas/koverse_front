@@ -19,7 +19,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('/tasks')
+    axios.get('https://koverse-back.onrender.com/tasks')
       .then((response) => {
         console.log(response.data)
         this.tasks = response.data
