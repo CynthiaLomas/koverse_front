@@ -105,7 +105,7 @@ export default {
       let newTask = {
         task: this.Task.task
       }
-      axios.post('http://localhost:5000/save', newTask)
+      axios.post('https://koverse-back.onrender.com/save', newTask)
         .then((response) => {
           console.log(response)
         })
@@ -133,7 +133,7 @@ export default {
       this.tasks = []
     },
     removeTask (index, key) {
-      axios.delete('http://localhost:5000/delete/' + key)
+      axios.delete('https://koverse-back.onrender.com/delete/' + key)
         .then((response) => {
           console.log(response)
         })
@@ -144,7 +144,7 @@ export default {
     },
     completeTask (task) {
       let taskId = task._id
-      axios.put('http://localhost:5000/complete/' + taskId,
+      axios.put('https://koverse-back.onrender.com/complete/' + taskId,
         {
           completed: 'true'
         })
