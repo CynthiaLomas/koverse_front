@@ -19,7 +19,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('http://localhost:5000/tasks')
+    axios.get('/tasks')
       .then((response) => {
         console.log(response.data)
         this.tasks = response.data
