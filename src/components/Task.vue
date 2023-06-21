@@ -157,16 +157,17 @@ export default {
       task.completed = !task.completed
     },
     unCompleteTask (task) {
-      axios.put('https://koverse-back.onrender.com/uncomplete/' + taskId, 
-      {
-        completed: 'false'
-      })
-      .then((response) => {
+      let taskId = task._id
+      axios.put('https://koverse-back.onrender.com/uncomplete/' + taskId,
+        {
+          completed: 'false'
+        })
+        .then((response) => {
           console.log(response)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+        })
+        .catch((err) => {
+          console.log(err)
+        })
       task.uncompleted = task.completed
     }
   }
