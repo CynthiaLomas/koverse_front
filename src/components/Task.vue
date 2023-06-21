@@ -57,7 +57,7 @@
         <!-- Task Lists -->
         <div class="taskItems">
           <ul>
-            <task-item v-bind:task="task" v-for="(task, index) in tasks" :key="task._id" @remove="removeTask(index, task._id)" @complete="completeTask(task)"></task-item>
+            <task-item v-bind:task="task" v-for="(task, index) in tasks" :key="task._id" @remove="removeTask(index, task._id)" @complete="completeTask(task)" @uncomplete="unCompleteTask(task)"></task-item>
           </ul>
         </div>
         <!-- Buttons -->
@@ -155,6 +155,19 @@ export default {
           console.log(err)
         })
       task.completed = !task.completed
+    },
+    unCompleteTask (task) {
+      axios.put('https://koverse-back.onrender.com/uncomplete/' + taskId, 
+      {
+        completed: 'false'
+      })
+      .then((response) => {
+          console.log(response)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+      task.uncompleted = task.completed
     }
   }
 }
